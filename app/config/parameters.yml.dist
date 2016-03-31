@@ -24,3 +24,8 @@ parameters:
 
     # Solr root endpoint, relevant if `solr` is set as search_engine
     solr_dsn: http://localhost:8983/solr
+
+    #Social Networks params
+    facebook_client_id:
+    facebook_client_secret:
+

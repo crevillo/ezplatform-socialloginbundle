@@ -19,6 +19,14 @@ security:
         ezpublish_front:
             pattern: ^/
             anonymous: ~
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                use_forward: false
+                failure_path: /login
+
+                oauth_user_provider:
+                    service: crevillo.ezsocialloginbundle.oauth_aware.user_provider.service
             ezpublish_rest_session: ~
             form_login:
                 require_previous_session: false
@@ -26,3 +34,6 @@ security:
 
         default:
             anonymous: ~
+
+    access_control:
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: http}
